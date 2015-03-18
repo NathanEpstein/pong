@@ -5,14 +5,27 @@
     self.screen = self.canvas.getContext('2d');
 
     //game objects
-    // this.ball = new Ball({
+    this.compScore = 0;
+    this.playScore = 0;
 
-    // });
     this.player = new Player({
       screen: this.screen,
       canvas: this.canvas,
     });
-    self.bodies = [this.player];
+    this.computer = new Computer({
+      screen: this.screen,
+      canvas: this.canvas,
+      ball: new Ball({
+             screen: this.screen,
+             canvas: this.canvas,
+             player: this.player,
+             game: this,
+           }),
+    });
+    this.ball = this.computer.ball;
+    this.ball.computer = this.computer;
+
+    self.bodies = [this.player,this.ball,this.computer];
 
     var tick = function(){
       self.update();

@@ -8,7 +8,7 @@ var Player = function(config){
   this.keyboard = new Keyboard();
   this.center = {x:15, y:this.canvas.height/2};
   this.size = {x: 10, y: 75 }
-  this.speed = 2;
+  this.speed = 5;
 };
 
 Player.prototype = {
